@@ -4,8 +4,8 @@ import pandas as pd
 from sklearn.preprocessing import Imputer
 
 #Reading data
-data_2013 = pd.read_csv('wheat-2013-supervised.csv', delimiter=',')
-data_2014 = pd.read_csv('wheat-2014-supervised.csv', delimiter=',')
+data_2013 = pd.read_csv('https://aerialintel.blob.core.windows.net/recruiting/datasets/wheat-2013-supervised.csv', delimiter=',')
+data_2014 = pd.read_csv('https://aerialintel.blob.core.windows.net/recruiting/datasets/wheat-2014-supervised.csv', delimiter=',')
 
 """print(pd.isnull(data_1).any(1).nonzero()[0])
 print(pd.isnull(data_2).any(1).nonzero()[0])
