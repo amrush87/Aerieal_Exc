@@ -23,13 +23,21 @@ I must mention that I could’ve randomized the index selection in KFold, but th
 
 Main Program Logic: 
 
-Create a matrix that contains the indices of training and testing instances of each iteration using sklearn.cross_validation.KFold
-Go into a for loop that uses those indices as double-iterators. 
-Create temporary X_train, Y_train, X_test, and Y_test arrays by using the current iteration of indices. 
-Feed those arrays to the classifier and predictor.
-Feed the predictor result, along with Y_test, to calculate error (mean square error). 
-Record error and predictions into a new arrays.
-Go back to 3; until all indices are tested once. 
+1- Create a matrix that contains the indices of training and testing instances of each iteration using 
+
+2- sklearn.cross_validation.KFold
+
+3- Go into a for loop that uses those indices as double-iterators. 
+
+4- Create temporary X_train, Y_train, X_test, and Y_test arrays by using the current iteration of indices. 
+
+5- Feed those arrays to the classifier and predictor.
+
+6- Feed the predictor result, along with Y_test, to calculate error (mean square error). 
+
+7- Record error and predictions into a new arrays.
+
+8- Go back to 3; until all indices are tested once. 
 
 Testing and results: 
 
@@ -37,7 +45,7 @@ I decided to run the program three times. Once on each data set separately (two)
 
 The predicted yields themselves seem to be hit and miss. I would try to confirm whether these “misses” are within reasonable range or not. However, all predictions cluster around within the counties. I would explore more if there is any kind of overfitting or underfitting. 
 
-The error produced has a clear disparity between the 2013 set and the 2014 set. The 2013 set has a much higher mean square error. This is also can clearly be seen in the combined set results. I would want to investigate more into that had I had more time. 
+The error produced has a clear disparity between the 2013 set and the 2014 set. The 2013 set has a much higher mean square error. This is also can clearly be seen in the combined set results. I would want to investigate more into that had I had more time. In my opinion, the most direct way to do that is to apply the suggested randomizing of indices. 
 
 Problems I faced: 
 
@@ -46,10 +54,15 @@ The error calculation for the combined data set broke down every time. It took m
 Had I had More time:
 
 Instead of zeros, I would have filled the missing data with medians/means of the county within a few days’ range. The idea is that since weather is quite a localized and short-term variable, having medians/means is better than zeros. 
+
 I would have figured out a way to incorporate ranges for the predicted yields, instead of single numbers. Or at least a general method for calculating the overall standard deviation of the predictions. The way I would approach this is to take each county’s predicted yields and report the median/mean and standard deviation. From then on, I would tweak the results as long as it makes sense to do so. 
+
 I would have looked deeper into the relationship of longitude and latitude and yield. Having the yield county-specific must have a particular effect on those two feature. I would also ask for the altitude of that location, it could have an effect too. 
+
 Try different error calculations and see which one makes more sense. As it stands, mean square error is the bigger the error is the worse with no clear indication of how worse. 
+
 Tweak the Lasso regressor fitting step. Try different options. 
+
 Of course, I would have produced some visualizations! 
 
 
